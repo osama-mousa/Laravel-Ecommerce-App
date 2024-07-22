@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 
 @section('content')
     <!-- features list section -->
@@ -85,7 +85,7 @@
                     <div class="testimonial-sliders">
                         <div class="single-testimonial-slider">
                             <div class="client-avater">
-                                <img src="assets/img/avaters/avatar1.png" alt="">
+                                <img src="{{ asset('assets/img/avaters/avatar1.png') }}" alt="">
                             </div>
                             <div class="client-meta">
                                 <h3>Saira Hakim <span>Local shop owner</span></h3>
@@ -101,7 +101,7 @@
                         </div>
                         <div class="single-testimonial-slider">
                             <div class="client-avater">
-                                <img src="assets/img/avaters/avatar2.png" alt="">
+                                <img src="{{ asset('assets/img/avaters/avatar2.png') }}" alt="">
                             </div>
                             <div class="client-meta">
                                 <h3>David Niph <span>Local shop owner</span></h3>
@@ -117,7 +117,7 @@
                         </div>
                         <div class="single-testimonial-slider">
                             <div class="client-avater">
-                                <img src="assets/img/avaters/avatar3.png" alt="">
+                                <img src="{{ asset('assets/img/avaters/avatar3.png') }}" alt="">
                             </div>
                             <div class="client-meta">
                                 <h3>Jacob Sikim <span>Local shop owner</span></h3>
@@ -172,19 +172,19 @@
                 <div class="col-lg-12">
                     <div class="logo-carousel-inner">
                         <div class="single-logo-item">
-                            <img src="assets/img/company-logos/1.png" alt="">
+                            <img src="{{ asset('assets/img/company-logos/1.png') }}" alt="">
                         </div>
                         <div class="single-logo-item">
-                            <img src="assets/img/company-logos/2.png" alt="">
+                            <img src="{{ asset('assets/img/company-logos/2.png') }}" alt="">
                         </div>
                         <div class="single-logo-item">
-                            <img src="assets/img/company-logos/3.png" alt="">
+                            <img src="{{ asset('assets/img/company-logos/3.png') }}" alt="">
                         </div>
                         <div class="single-logo-item">
-                            <img src="assets/img/company-logos/4.png" alt="">
+                            <img src="{{ asset('assets/img/company-logos/4.png') }}" alt="">
                         </div>
                         <div class="single-logo-item">
-                            <img src="assets/img/company-logos/5.png" alt="">
+                            <img src="{{ asset('assets/img/company-logos/5.png') }}" alt="">
                         </div>
                     </div>
                 </div>
