@@ -63,17 +63,24 @@
                         <nav class="main-menu">
                             <ul>
                                 <li class="current-list-item"><a href="/">Home</a></li>
-                                <li><a href="/catagory">Catagories</a></li>
-                                <li><a href="/about">About</a></li>
                                 <li><a href="/tags">Tags</a></li>
+                                <li><a href="/questions">Questions</a></li>
+                                <li><a href="/about">About</a></li>
                                 <li><a href="/contact">Contact</a></li>
                                 <li>
-                                    <a href="/login">
-                                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                                    </a>
-                                    <a href="/register">
-                                        <button type="button" class="btn btn-warning">Sign-up</button>
-                                    </a>
+                                    @if (Auth::check())
+                                        <a href="/dashboard">
+                                            <button type="button"
+                                                class="btn btn-outline-light me-2">{{ $user->name }}</button>
+                                        </a>
+                                    @else
+                                        <a href="/login">
+                                            <button type="button" class="btn btn-outline-light me-2">Login</button>
+                                        </a>
+                                        <a href="/register">
+                                            <button type="button" class="btn btn-warning">Sign-up</button>
+                                        </a>
+                                    @endif
                                 </li>
                             </ul>
                         </nav>

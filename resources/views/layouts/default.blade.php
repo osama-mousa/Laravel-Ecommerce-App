@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/bootstrap/css/headers.css">
+    <link rel="stylesheet" href="{{ asset('/assets/bootstrap/css/headers.css') }}">
     <title>{{ $title }}</title>
 </head>
 
@@ -22,25 +22,29 @@
                 </a>
 
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+                    <li><a href="/" class="nav-link px-2 text-secondary">Home</a></li>
+                    <li><a href="{{ route('tags.index') }}" class="nav-link px-2 text-white">Tags</a></li>
+                    <li><a href="{{ route('questions.index') }}" class="nav-link px-2 text-white">Questions</a></li>
+                    <li><a href="{{ route('about.index') }}" class="nav-link px-2 text-white">About</a></li>
                 </ul>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
                     <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..."
                         aria-label="Search">
                 </form>
-
                 <div class="text-end">
-                    <a href="/login">
-                        <button type="button" class="btn btn-outline-light me-2">Login</button>
-                    </a>
-                    <a href="/register">
-                        <button type="button" class="btn btn-warning">Sign-up</button>
-                    </a>
+                    @if (Auth::check())
+                        <a href="/dashboard">
+                            <button type="button" class="btn btn-outline-light me-2">{{ $user->name }}</button>
+                        </a>
+                    @else
+                        <a href="/login">
+                            <button type="button" class="btn btn-outline-light me-2">Login</button>
+                        </a>
+                        <a href="/register">
+                            <button type="button" class="btn btn-warning">Sign-up</button>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
