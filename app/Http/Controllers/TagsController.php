@@ -8,9 +8,21 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class TagsController extends Controller
+class TagsController extends Controller implements HasMiddleware
 {
+
+    public static function middleware(): array
+    {
+        return [
+            // 'auth',
+            // new Middleware('auth', except: ['index','create']),
+            new Middleware('auth', only: ['create', 'store', 'edit','destroy']),
+            // new Middleware('subscribed', except: ['index']),
+        ];
+    }
     public function index()
     {
         $tags = Tag::all();
@@ -26,6 +38,8 @@ class TagsController extends Controller
         return view("tags.create", [
             "title" => "Create New Tag",
             'tag' => new Tag(),
+            "user" => Auth::user(),
+            
         ]);
     }
 
@@ -82,6 +96,8 @@ class TagsController extends Controller
         return view("tags.edit", [
             "title" => "Edit Tag",
             'tag' => $tag,
+            "user" => Auth::user(),
+
         ]);
     }
 
